@@ -1,6 +1,6 @@
 {
   "name": "@vault_h4x/gql-example-v2",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "GQL - v2",
   "main": "dist/index.js",
   "scripts": {
@@ -10,6 +10,9 @@
   "dependencies": {
     "@vault_h4x/gql-example-services": "^1.0.0",
     "@vault_h4x/gql-example-utils": "^1.0.0",
-    "apollo-server": "^3.10.0"
+    "apollo-server": "^3.10.0",
+    "class-validator": "^0.13.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   }
 }

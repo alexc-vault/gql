@@ -19,11 +19,11 @@ export function createGroup(groupData: GroupCreationAttributes): GroupAttributes
   return group;
 }
 
-export function findGroupById(id: number): GroupAttributes | undefined {
-  return groups.find((group) => group.id === id);
+export function findGroupById(id: number): GroupAttributes | null {
+  return groups.find((group) => group.id === id) || null;
 }
 
-export function findGroupsById(ids: number[]): GroupAttributes[] {
+export function findGroupsByIds(ids: number[]): GroupAttributes[] {
   return groups.filter((group) => ids.includes(group.id));
 }
 

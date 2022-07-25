@@ -31,8 +31,8 @@ export function createUser(userData: UserCreationAttributes): UserAttributes {
   return user;
 }
 
-export function findUserById(id: number): UserAttributes | undefined {
-  return users.find((user) => user.id === id);
+export function findUserById(id: number): UserAttributes | null {
+  return users.find((user) => user.id === id) || null;
 }
 
 export function findAllUsers(): UserAttributes[] {

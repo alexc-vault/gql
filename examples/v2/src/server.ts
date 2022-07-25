@@ -1,12 +1,11 @@
 import { ApolloServer } from 'apollo-server';
 
 import { createContext } from './context';
-import { resolvers, typeDefs } from './schema';
+import { schema } from './schema';
 
 export function createServer() {
   return new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema,
     context: createContext,
     // introspection: true
   });
