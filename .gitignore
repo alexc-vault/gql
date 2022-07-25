@@ -118,6 +118,8 @@ dist
 
 ### Project
 
+.idea/
+
 */dist/
 
 schema.graphql
