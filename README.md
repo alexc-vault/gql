@@ -2,6 +2,10 @@
 
 ## Get started
 
+1. [Fork Me!](https://github.com/alexc-vault/gql/fork)
+
+2. Install some stuff and initialise the repo
+
 ```shell
 npm install
 npm run init
