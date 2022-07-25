@@ -1,0 +1,9 @@
+{
+  "name": "@vault_h4x/gql-example-utils",
+  "version": "1.0.0",
+  "description": "GQL - Utils",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  }
+}

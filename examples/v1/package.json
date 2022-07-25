@@ -1,0 +1,14 @@
+{
+  "name": "@vault_h4x/gql-example-v1",
+  "version": "1.0.0",
+  "description": "GQL - v1",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "nodemon": "nodemon"
+  },
+  "dependencies": {
+    "@vault_h4x/gql-example-services": "^1.0.0",
+    "@vault_h4x/gql-example-utils": "^1.0.0"
+  }
+}

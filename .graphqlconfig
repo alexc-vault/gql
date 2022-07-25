@@ -1,0 +1,15 @@
+{
+  "name": "Example GraphQL API",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "default": {
+        "url": "http://localhost:4000/graphql",
+        "headers": {
+          "authorization": "0"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
