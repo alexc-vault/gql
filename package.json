@@ -1,10 +1,12 @@
 {
-  "name": "gql_1",
+  "name": "@vault_h4x/gql-example",
   "version": "1.0.0",
   "description": "GQL 1",
   "scripts": {
     "init": "lerna bootstrap",
-    "start:v1": "lerna run start --scope=@vault_h4x/gql-example-v1"
+    "postinit": "lerna run build",
+    "start:v1": "lerna run start --scope=@vault_h4x/gql-example-v1",
+    "start:v2": "lerna run start --scope=@vault_h4x/gql-example-v2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.7",
@@ -18,8 +20,6 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.3.0",
-    "apollo-server": "^3.10.0",
     "graphql": "^16.5.0"
   }
 }

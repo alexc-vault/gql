@@ -1,0 +1,15 @@
+{
+  "name": "@vault_h4x/gql-example-v2",
+  "version": "1.0.0",
+  "description": "GQL - v2",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "nodemon": "nodemon"
+  },
+  "dependencies": {
+    "@vault_h4x/gql-example-services": "^1.0.0",
+    "@vault_h4x/gql-example-utils": "^1.0.0",
+    "apollo-server": "^3.10.0"
+  }
+}
