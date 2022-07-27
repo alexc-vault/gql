@@ -35,6 +35,10 @@ export default class UserResolver {
   
   @FieldResolver(() => [GroupType], { nullable: true })
   async Groups(@Root() user: UsersService.UserAttributes): Promise<GroupsService.GroupAttributes[]> {
+    if (!user.groups) {
+      return [];
+    }
+    
     return GroupsService.findGroupsByIds(user.groups);
   }
 }
