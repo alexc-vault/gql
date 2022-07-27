@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "GQL 1",
   "scripts": {
+    "build:packages": "lerna run build",
     "init": "lerna bootstrap",
-    "postinit": "lerna run build",
-    "start:v1": "lerna run start --scope=@vault_h4x/gql-example-v1",
-    "start:v2": "lerna run start --scope=@vault_h4x/gql-example-v2"
+    "postinit": "npm run build:packages",
+    "start:v1": "npm run start --prefix=examples/v1",
+    "start:v2": "npm run start --prefix=examples/v2",
+    "watch:packages": "nodemon"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.7",

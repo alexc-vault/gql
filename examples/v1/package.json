@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "ts-node src/main.ts",
-    "nodemon": "nodemon"
+    "watch": "nodemon"
   },
   "dependencies": {
     "@vault_h4x/gql-example-services": "^1.0.0",

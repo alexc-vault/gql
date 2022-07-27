@@ -3,8 +3,15 @@
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
-      "default": {
-        "url": "http://localhost:4000/graphql",
+      "v1": {
+        "url": "http://localhost:4001/graphql",
+        "headers": {
+          "authorization": "0"
+        },
+        "introspect": true
+      },
+      "v2": {
+        "url": "http://localhost:4002/graphql",
         "headers": {
           "authorization": "0"
         },

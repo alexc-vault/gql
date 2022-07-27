@@ -1,0 +1,8 @@
+{
+  "watch": [
+    "packages/services/src",
+    "packages/utils/src"
+  ],
+  "ext": "ts",
+  "exec": "npm run build:packages"
+}

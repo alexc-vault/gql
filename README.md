@@ -11,6 +11,21 @@ npm install
 npm run init
 ```
 
+3. Prep your tools
+
+- GraphQL client: https://studio.apollographql.com/sandbox/explorer
+
+# Run some stuff!
+
+The repository is in the form of a monorepo (which is apt as we are switching to one) and uses
+the very much alive `lerna` tool to manage dependencies. I've tried to abstract away the `lerna`
+layer, so you should be able to use `npm` for running most of the scripts.
+
+
+
+
+
+
 
 DUMP
 ```graphql
