@@ -18,6 +18,10 @@ export const resolvers = {
       return measurement === 'HOURS' ? root.age * 24 : root.age;
     },
     Groups: (root: UsersService.UserAttributes) => {
+      if (!root.groups) {
+        return [];
+      }
+      
       return GroupsService.findGroupsByIds(root.groups)
     }
   },

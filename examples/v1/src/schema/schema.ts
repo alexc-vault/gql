@@ -10,11 +10,11 @@ export const typeDefs = gql`
   }
 
   type User {
-    id: Int
-    firstName: String
-    lastName: String
+    id: Int!
+    firstName: String!
+    lastName: String!
     age(measurement: Measurement): Int
-    groups: [Group]!
+    Groups: [Group]!
   }
 
   type Group {
@@ -27,6 +27,7 @@ export const typeDefs = gql`
   input UserInput {
     firstName: String!
     lastName: String!
+    age: Int
     groups: [Int!]
   }
 

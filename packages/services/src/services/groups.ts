@@ -8,7 +8,7 @@ export interface GroupAttributes extends GroupCreationAttributes {
   id: number;
 }
 
-const groups = [...Array(10).keys()].map(id => {
+const groups: GroupAttributes[] = [...Array(10).keys()].map(id => {
   return { id, name: faker.name.jobTitle() };
 });
 

@@ -3,7 +3,8 @@ import { Arg, Ctx, FieldResolver, Int, Query, Resolver, Root, } from 'type-graph
 
 import { Context } from '../../context';
 import { GroupType } from '../group/group.type';
-import { Measurement, UserType } from './user.type';
+import { Measurement } from './measurement.enum';
+import { UserType } from './user.type';
 
 
 @Resolver(() => UserType)

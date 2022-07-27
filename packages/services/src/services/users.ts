@@ -9,10 +9,9 @@ export interface UserCreationAttributes {
 
 export interface UserAttributes extends UserCreationAttributes {
   id: number;
-  groups: number[];
 }
 
-const users = [...Array(30).keys()].map(id => {
+const users: UserAttributes[] = [...Array(30).keys()].map(id => {
   const groupId = Math.floor(Math.random() * 9);
   
   return { 

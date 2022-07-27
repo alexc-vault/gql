@@ -19,7 +19,7 @@ export function createContext(args: { req: IncomingMessage, res: ServerResponse 
   
   // Auth
   const user = req.headers['authorization']
-    ? UsersService.findUserById(parseInt(req.headers['authorization'] as string, 10))
+    ? UsersService.findUserById(parseInt(req.headers['authorization'] as string, 10)) || undefined
     : undefined;
   
   const isAuthenticated = !!user;
