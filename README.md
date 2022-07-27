@@ -39,5 +39,71 @@ npm run start:v2
 
 # Example Queries and Mutations
 ```graphql
+query Users {
+  users {
+    id
+    age
+    firstName
+    lastName
+  }
+}
 
+query Error {
+  error {
+    firstName
+  }
+}
+
+fragment UserWithGroups on User {
+  id
+  age(measurement: HOURS)
+  firstName
+  lastName
+  Groups {
+    id
+    name
+  }
+}
+
+query UsersWithFragment {
+  users {
+    ...UserWithGroups
+  }
+}
+
+query UsersWithInbuiltDirective {
+  users {
+    id
+    Groups @include(if: false) {
+      name
+    }
+  }
+}
+
+
+mutation UserCreate {
+  userCreate(input: { firstName: "Alex", lastName: "Cruncher", age: 36, groups: [0]}) {
+    id
+    firstName
+    lastName
+    Groups {
+      id
+      name
+    }
+  }
+}
+
+query Groups {
+  groups {
+    id
+    name
+  }
+}
+
+query GroupById {
+  groupById(id: 0) {
+    id
+    name
+  }
+}
 ```
