@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 export interface GroupCreationAttributes {
-  name: string;
+  name?: string;
 }
 
 export interface GroupAttributes extends GroupCreationAttributes {

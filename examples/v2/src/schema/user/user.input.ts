@@ -1,11 +1,11 @@
-import { Field, Int, ObjectType } from 'type-graphql';
+import { Field, InputType, Int, ObjectType } from 'type-graphql';
 
 import { UsersService } from '@vault_h4x/gql-example-services';
 
-@ObjectType('User')
-export class UserType implements Omit<UsersService.UserAttributes, 'age'> {
+@InputType('UserInput')
+export class UserInputType implements UsersService.UserCreationAttributes {
   @Field(() => Int)
-  id: number;
+  age: number;
   
   @Field()
   firstName: string;

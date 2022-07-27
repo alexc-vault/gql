@@ -31,7 +31,7 @@ export function createContext(args: { req: IncomingMessage, res: ServerResponse 
   const auditService = new AuditService(requestId);
   
   return { 
-    auditService, 
+    auditService,
     isAuthenticated,
     log,
     user

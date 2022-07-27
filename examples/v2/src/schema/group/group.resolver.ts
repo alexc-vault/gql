@@ -12,6 +12,10 @@ import { GroupType } from './group.type';
 
 @Resolver(() => GroupType)
 export default class GroupResolver {
+
+  //
+  // Queries
+  
   @Query(() => GroupType, { nullable: true })
   async groupById(
     @Ctx() context: Context,
@@ -20,7 +24,7 @@ export default class GroupResolver {
     return GroupsService.findGroupById(id);
   }
 
-  @Query(() => GroupType)
+  @Query(() => [GroupType])
   async groups(
     @Ctx() context: Context
   ): Promise<GroupsService.GroupAttributes[]> {

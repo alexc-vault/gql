@@ -1,10 +1,10 @@
-import { Field, ObjectType } from 'type-graphql';
+import { Field, Int, ObjectType } from 'type-graphql';
 
 import { GroupsService } from '@vault_h4x/gql-example-services';
 
 @ObjectType('Group')
 export class GroupType implements GroupsService.GroupAttributes {
-  @Field()
+  @Field(() => Int)
   id: number;
 
   @Field({ nullable: true })
