@@ -1,4 +1,4 @@
-import { Field, Int, ObjectType, UseMiddleware } from 'type-graphql';
+import { Authorized, Field, Int, ObjectType, UseMiddleware } from 'type-graphql';
 
 import { GroupsService } from '@vault_h4x/gql-example-services';
 

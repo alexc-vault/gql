@@ -1,5 +1,5 @@
 import { GroupsService, UsersService } from '@vault_h4x/gql-example-services';
-import { Arg, Ctx, FieldResolver, Int, Mutation, Query, Resolver, Root, } from 'type-graphql';
+import { Arg, Authorized, Ctx, FieldResolver, Int, Mutation, Query, Resolver, Root, } from 'type-graphql';
 
 import { Context } from '../../context';
 import { CreateAuditEvent } from '../../decorators/CreateAuditEvent';
@@ -11,11 +11,11 @@ import { UserType } from './user.type';
 
 @Resolver(() => UserType)
 export default class UserResolver {
-  
-  
+
+
   //
   // Queries
-  
+
   @Query(() => UserType, { nullable: true })
   async userById(
     @Arg('id') id: number
@@ -28,10 +28,10 @@ export default class UserResolver {
     return UsersService.findAllUsers();
   }
 
-  
+
   //
   // Mutations
-  
+
   @Mutation(() => UserType)
   @CreateAuditEvent('USER_CREATE')
   async userCreate(
@@ -41,10 +41,11 @@ export default class UserResolver {
     return UsersService.createUser(input);
   }
 
-  
+
   //
   // FieldResolvers
-  
+
+  @Authorized('user')
   @FieldResolver(() => Int, { nullable: true })
   age(
     @Root() user: UsersService.UserAttributes,
@@ -52,7 +53,7 @@ export default class UserResolver {
   ): number {
     return measurement === Measurement.HOURS ? user.age * 24 : user.age;
   }
-  
+
   @FieldResolver(() => [GroupType], { nullable: true })
   async Groups(
     @Root() user: UsersService.UserAttributes
@@ -60,7 +61,7 @@ export default class UserResolver {
     if (!user.groups) {
       return [];
     }
-    
+
     return GroupsService.findGroupsByIds(user.groups);
   }
 }

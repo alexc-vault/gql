@@ -1,5 +1,5 @@
 import {
-  Arg,
+  Arg, Authorized,
   Ctx,
   Query,
   Resolver, UseMiddleware,
@@ -18,6 +18,7 @@ export default class GroupResolver {
   // Queries
   @Query(() => GroupType, { nullable: true })
   @UseMiddleware(LogQuery)
+  @Authorized('user')
   async groupById(
     @Ctx() context: Context,
     @Arg('id') id: number
@@ -27,6 +28,7 @@ export default class GroupResolver {
 
   @Query(() => [GroupType])
   @UseMiddleware(LogQuery)
+  @Authorized('user')
   async groups(
     @Ctx() context: Context
   ): Promise<GroupsService.GroupAttributes[]> {
