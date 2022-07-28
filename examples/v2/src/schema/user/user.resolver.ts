@@ -45,7 +45,6 @@ export default class UserResolver {
   //
   // FieldResolvers
 
-  @Authorized('user')
   @FieldResolver(() => Int, { nullable: true })
   age(
     @Root() user: UsersService.UserAttributes,
@@ -54,6 +53,7 @@ export default class UserResolver {
     return measurement === Measurement.HOURS ? user.age * 24 : user.age;
   }
 
+  @Authorized('user')
   @FieldResolver(() => [GroupType], { nullable: true })
   async Groups(
     @Root() user: UsersService.UserAttributes
