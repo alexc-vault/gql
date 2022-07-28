@@ -6,8 +6,8 @@ import { gql } from 'apollo-server';
  *   name: 'User',
  *   fields: {
  *     id: { type: GraphQLInt },
- *     firstName: { type: GraphQLInt },
- *     lastName: { type: GraphQLInt },
+ *     firstName: { type: GraphQLString },
+ *     lastName: { type: GraphQLString },
  *     age: {
  *       type: GraphQLInt,
  *       resolve(obj) {
