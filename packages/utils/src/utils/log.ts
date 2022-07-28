@@ -1,6 +1,6 @@
 export type Logger = (message: string, ...rest: any) => void;
 
-export function createLogger(id: string, userId?: string) {
+export function createLogger(id: string, userId?: number) {
   return (message: string, ...rest: any) => {
     const userPart = userId !== undefined ? userId : 'unknown';
     const restPart = rest.length ? '\n' + JSON.stringify(rest) : '';

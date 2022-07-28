@@ -7,10 +7,6 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.3.0",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "@types/uuid": "^8.3.4"
+    "@faker-js/faker": "^7.3.0"
   }
 }
