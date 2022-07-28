@@ -10,6 +10,8 @@ interface UserInput {
 }
 
 export const resolvers = {
+  
+  //
   // Field Resolvers
   User: {
     age: (root: UsersService.UserAttributes, args: { measurement: string }) => {
@@ -26,6 +28,7 @@ export const resolvers = {
     }
   },
   
+  //
   // Query Resolvers
   Query: {
     userById: (_root: any, args: { id: number }) => {
@@ -50,6 +53,7 @@ export const resolvers = {
     },
   },
   
+  //
   // Mutation Resolvers
   Mutation: {
     userCreate: (_root: any, args: { input: UserInput }, ctx: Context) => {
