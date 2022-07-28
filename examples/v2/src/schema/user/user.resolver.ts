@@ -1,5 +1,6 @@
 import { GroupsService, UsersService } from '@vault_h4x/gql-example-services';
-import { Arg, Authorized, Ctx, FieldResolver, Int, Mutation, Query, Resolver, Root, } from 'type-graphql';
+import { GraphQLResolveInfo } from 'graphql';
+import { Arg, Authorized, Ctx, FieldResolver, Info, Int, Mutation, Query, Resolver, Root, } from 'type-graphql';
 
 import { Context } from '../../context';
 import { CreateAuditEvent } from '../../decorators/CreateAuditEvent';
@@ -26,6 +27,20 @@ export default class UserResolver {
   @Query(() => [UserType])
   async users(): Promise<UsersService.UserAttributes[]> {
     return UsersService.findAllUsers();
+  }
+
+  @Query(() => [UserType])
+  async error(
+    @Ctx() context: Context,
+    @Info() info: GraphQLResolveInfo
+  ): Promise<UsersService.UserAttributes[]> {
+    const { log } = context;
+
+    const error = new Error('DB Error');
+
+    log(error.message, error.stack, info);
+
+    throw error;
   }
 
 

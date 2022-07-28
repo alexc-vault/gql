@@ -33,12 +33,16 @@ export const resolvers = {
   // Query Resolvers
   Query: {
     userById: (_root: any, args: { id: number }) => {
-      return UsersService.findUserById(args.id)
+      return UsersService.findUserById(args.id);
     },
     users: () => {
       return UsersService.findAllUsers();
     },
 
+
+    groupById: (_root: any, args: { id: number }) => {
+      return GroupsService.findGroupById(args.id);
+    },
     groups: () => {
       return GroupsService.findAllGroups();
     },
@@ -46,7 +50,7 @@ export const resolvers = {
     error: (_root: any, _args: never, ctx: Context, info: GraphQLResolveInfo) => {
       const { log } = ctx;
 
-      const error = new Error('DB Error')
+      const error = new Error('DB Error');
 
       log(error.message, error.stack, info);
 
