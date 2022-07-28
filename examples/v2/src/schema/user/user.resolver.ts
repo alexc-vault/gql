@@ -34,7 +34,7 @@ export default class UserResolver {
   @Authorized('user')
   @Query(() => UserType, { nullable: true })
   async userById(
-    @Arg('id') id: number
+    @Arg('id') id: string
   ): Promise<UsersService.UserAttributes | null> {
     return UsersService.findUserById(id);
   }
