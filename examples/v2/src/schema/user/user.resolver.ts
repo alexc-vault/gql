@@ -70,7 +70,7 @@ export default class UserResolver {
   async userCreate(
     @Ctx() context: Context,
     @Arg('input') input: UserInputType
-  ) {
+  ): Promise<UsersService.UserAttributes> {
     return UsersService.createUser(input);
   }
 
