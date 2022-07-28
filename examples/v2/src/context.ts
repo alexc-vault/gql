@@ -14,23 +14,23 @@ export interface Context {
 
 export function createContext(args: { req: IncomingMessage, res: ServerResponse }): Context {
   const { req } = args;
-  
+
   const requestId = crypto.randomUUID();
-  
+
   // Auth
   const user = req.headers['authorization']
-    ? UsersService.findUserById(parseInt(req.headers['authorization'] as string, 10)) || undefined
+    ? UsersService.findUserById(req.headers['authorization']) || undefined
     : undefined;
-  
+
   const isAuthenticated = !!user;
-  
+
   // Log
   const log = createLogger(requestId, user?.id);
-  
+
   // Audit
   const auditService = new AuditService(requestId);
-  
-  return { 
+
+  return {
     auditService,
     isAuthenticated,
     log,
