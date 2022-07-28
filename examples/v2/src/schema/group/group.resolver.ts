@@ -8,7 +8,7 @@ import {
 import { GroupsService } from '@vault_h4x/gql-example-services';
 
 import { Context } from '../../context';
-import { LogQuery } from '../../middleware/LogRequest';
+import { LogQuery } from '../../middleware/LogQuery';
 import { GroupType } from './group.type';
 
 @Resolver(() => GroupType)
