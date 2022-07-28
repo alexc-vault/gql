@@ -1,5 +1,32 @@
 import { gql } from 'apollo-server';
 
+
+/**
+ * const UserType = new GraphQLObjectType({
+ *   name: 'User',
+ *   fields: {
+ *     id: { type: GraphQLInt },
+ *     firstName: { type: GraphQLInt },
+ *     lastName: { type: GraphQLInt },
+ *     age: {
+ *       type: GraphQLInt,
+ *       resolve(obj) {
+ *         ...
+ *       }
+ *     }
+ *     groups: { type: new GraphQLList(GraphQLInt) }
+ *     Groups: {
+ *       type: new GraphQLList(GroupType),
+ *       resolve(obj) {
+ *         ...
+ *       }
+ *     }
+ *   }
+ * });
+ */
+
+
+
 export const typeDefs = gql`
 
   #
