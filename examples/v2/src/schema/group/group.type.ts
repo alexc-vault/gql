@@ -10,6 +10,5 @@ export class GroupType implements GroupsService.GroupAttributes {
   id: number;
 
   @Field({ nullable: true })
-  @UseMiddleware(LogQuery)
   name: string;
 }

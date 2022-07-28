@@ -1,9 +1,22 @@
 import { GroupsService, UsersService } from '@vault_h4x/gql-example-services';
 import { GraphQLResolveInfo } from 'graphql';
-import { Arg, Authorized, Ctx, FieldResolver, Info, Int, Mutation, Query, Resolver, Root, } from 'type-graphql';
+import {
+  Arg,
+  Authorized,
+  Ctx,
+  FieldResolver,
+  Info,
+  Int,
+  Mutation,
+  Query,
+  Resolver,
+  Root,
+  UseMiddleware,
+} from 'type-graphql';
 
 import { Context } from '../../context';
 import { CreateAuditEvent } from '../../decorators/CreateAuditEvent';
+import { LogQuery } from '../../middleware/LogQuery';
 import { GroupType } from '../group/group.type';
 import { Measurement } from './measurement.enum';
 import { UserInputType } from './user.input';
@@ -17,6 +30,8 @@ export default class UserResolver {
   //
   // Queries
 
+  @UseMiddleware(LogQuery)
+  @Authorized('user')
   @Query(() => UserType, { nullable: true })
   async userById(
     @Arg('id') id: number
@@ -24,11 +39,13 @@ export default class UserResolver {
     return UsersService.findUserById(id);
   }
 
+  @Authorized('user')
   @Query(() => [UserType])
   async users(): Promise<UsersService.UserAttributes[]> {
     return UsersService.findAllUsers();
   }
 
+  @Authorized('user')
   @Query(() => [UserType])
   async error(
     @Ctx() context: Context,
@@ -47,6 +64,7 @@ export default class UserResolver {
   //
   // Mutations
 
+  @Authorized('user')
   @Mutation(() => UserType)
   @CreateAuditEvent('USER_CREATE')
   async userCreate(
@@ -60,6 +78,7 @@ export default class UserResolver {
   //
   // FieldResolvers
 
+  @Authorized('user')
   @FieldResolver(() => Int, { nullable: true })
   age(
     @Root() user: UsersService.UserAttributes,

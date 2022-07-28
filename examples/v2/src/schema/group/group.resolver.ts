@@ -14,24 +14,11 @@ import { GroupType } from './group.type';
 @Resolver(() => GroupType)
 export default class GroupResolver {
 
-  //
-  // Queries
-  @Query(() => GroupType, { nullable: true })
-  @UseMiddleware(LogQuery)
-  @Authorized('user')
-  async groupById(
-    @Ctx() context: Context,
-    @Arg('id') id: number
-  ): Promise<GroupsService.GroupAttributes | null> {
-    return GroupsService.findGroupById(id);
-  }
+  // @TODO - Create a groups query resolver
 
-  @Query(() => [GroupType])
-  @UseMiddleware(LogQuery)
-  @Authorized('user')
-  async groups(
-    @Ctx() context: Context
-  ): Promise<GroupsService.GroupAttributes[]> {
-    return GroupsService.findAllGroups();
-  }
+  // @TODO - Create a `groupById` query resolver
+
+  // @TODO - Create a `groupsByIds` query resolver
+
+  // @TODO - Create a `groupCreate` mutation resolver
 }
