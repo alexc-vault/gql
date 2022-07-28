@@ -1,4 +1,5 @@
 import { UsersService, GroupsService } from '@vault_h4x/gql-example-services';
+import { GraphQLResolveInfo } from 'graphql';
 
 import { Context } from '../context';
 
@@ -10,24 +11,24 @@ interface UserInput {
 }
 
 export const resolvers = {
-  
+
   //
   // Field Resolvers
   User: {
     age: (root: UsersService.UserAttributes, args: { measurement: string }) => {
       const { measurement } = args;
-      
+
       return measurement === 'HOURS' ? root.age * 24 : root.age;
     },
     Groups: (root: UsersService.UserAttributes) => {
       if (!root.groups) {
         return [];
       }
-      
+
       return GroupsService.findGroupsByIds(root.groups)
     }
   },
-  
+
   //
   // Query Resolvers
   Query: {
@@ -37,22 +38,22 @@ export const resolvers = {
     users: () => {
       return UsersService.findAllUsers();
     },
-    
+
     groups: () => {
       return GroupsService.findAllGroups();
     },
-    
-    error: (_root: any, _args: never, ctx: Context) => {
+
+    error: (_root: any, _args: never, ctx: Context, info: GraphQLResolveInfo) => {
       const { log } = ctx;
-      
+
       const error = new Error('DB Error')
-      
-      log(error.message, error.stack);
-      
+
+      log(error.message, error.stack, info);
+
       throw error;
     },
   },
-  
+
   //
   // Mutation Resolvers
   Mutation: {
@@ -60,7 +61,7 @@ export const resolvers = {
       const { auditService } = ctx;
 
       auditService.addEvent('USER_CREATE');
-      
+
       return UsersService.createUser(args.input);
     },
   }
